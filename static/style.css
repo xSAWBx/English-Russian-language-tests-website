@@ -1,0 +1,85 @@
+/* Общие стили */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("travel.jpg");
+    background-size: cover;
+    color: #fff;
+    overflow: hidden; /* Скрыть полосу прокрутки */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow-y: auto; /* Добавить вертикальную прокрутку, если контент не влезает */
+
+}
+
+h1 {
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Стили для вопросов и ответов */
+.question {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.answer {
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.answer:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Стили для блока с результатами */
+.result {
+    margin-top: 320px;
+    font-size: 18px;
+    color: #007bff; /* Цвет текста для правильных ответов */
+}
+
+/* Стили для блока с кнопкой */
+.restart-button,
+.start-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.restart-button:hover,
+.start-button:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+}

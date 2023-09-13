@@ -1,0 +1,47 @@
+<!-- quiz.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Тест на знание английских глаголов</h1>
+        <p>Вопрос: {{ question }}</p>
+        <form id="quiz-form" action="/quiz" method="POST">
+            {% for answer in form.answer %}
+            <label class="answer" title="Выберите ответ и форма будет отправлена автоматически">
+                <input type="radio" name="answer" value="{{ answer.label.text }}">
+                {{ answer.label.text|safe }}
+            </label>
+            {% endfor %}
+        </form>
+    </div>
+    <div class="result">
+        <p>Правильных ответов: {{ session['score'] }}</p>
+        <p>Неправильных ответов: {{ session['current_question'] - session['score'] }}</p>
+        {% if answer_feedback %}
+        <p>{{ answer_feedback }}</p>
+        {% endif %}
+        <form action="/restart_quiz" method="POST">
+            <a href="{{ url_for('restart_quiz') }}" class="restart-button">Начать тест заново</a>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript код для автоматической отправки формы при выборе ответа
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        const form = document.getElementById('quiz-form');
+
+        radioButtons.forEach(radioButton => {
+            radioButton.addEventListener('change', () => {
+                form.submit(); // Отправляем форму при выборе ответа
+            });
+        });
+    </script>
+</body>
+</html>

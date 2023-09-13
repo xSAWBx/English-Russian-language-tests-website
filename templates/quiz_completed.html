@@ -1,0 +1,25 @@
+<!-- quiz_completed.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Результаты теста</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Результаты теста</h1>
+        <p>Всего вопросов: {{ total_questions }}</p>
+        <p>Правильных ответов: {{ correct_answers }}</p>
+        <p>Процент правильных ответов: {{ percent_correct }}%</p>
+        <p>Ваш статус: {{ status }}</p>
+        <div class="start-button">
+            <form action="/restart_quiz" method="POST">
+                <a href="{{ url_for('restart_quiz') }}" class="restart-button">Начать тест заново</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

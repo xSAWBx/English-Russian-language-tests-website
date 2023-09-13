@@ -1,0 +1,20 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Добро пожаловать на стартовую страницу">
+    <meta name="keywords" content="стартовая страница, тест, глаголы">
+    <title>Стартовая страница</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать на стартовую страницу</h1>
+        <p>Готовы начать путешествие в мир глаголов?</p>
+        <a href="{{ url_for('quiz') }}" class="start-button">Начать тест</a>
+    </div>
+</body>
+</html>
